@@ -91,23 +91,92 @@ const ServicesSection = () => {
 // Header Component
 const Header = () => {
   return (
-    <div>
-     
-      <div className="flex gap-4">
-              <button className="px-6 py-3 bg-[#1B365D] text-white rounded-md hover:bg-[#1B365D]/90 transition-colors text-lg">
-                Talk An Expert
-              </button>
-              <button className="px-6 py-3 border-2 border-[#1B365D] text-[#1B365D] rounded-md hover:bg-[#1B365D]/10 transition-colors text-lg">
-                See how it works
-              </button>
+    <div className="min-h-screen bg-gradient-to-br from-white to-blue-50 relative overflow-hidden">
+      {/* Navigation Menu */}
+      <nav className="absolute right-8 top-8 space-y-4">
+        <button className="bg-white px-6 py-3 rounded-full shadow-lg block w-full hover:shadow-xl transition-shadow">
+          Annual Compliance
+        </button>
+        <button className="bg-white px-6 py-3 rounded-full shadow-lg block w-full hover:shadow-xl transition-shadow">
+          Payroll Services
+        </button>
+        <button className="bg-white px-6 py-3 rounded-full shadow-lg block w-full hover:shadow-xl transition-shadow">
+          Company Formation
+        </button>
+      </nav>
+
+      {/* Main Content */}
+      <div className="container mx-auto px-6 pt-32 pb-16 grid lg:grid-cols-2 gap-12 items-center">
+        {/* Left Column */}
+        <div className="space-y-8">
+          <h1 className="text-[2.75rem] leading-tight font-bold text-gray-900">
+            Your Trusted Partner
+            <br />
+            For <span className="text-orange-400">Compliance</span> needs
+          </h1>
+
+          <p className="text-lg text-gray-700">
+            An online business compliance platform that helps entrepreneurs and other individuals with various,
+            <span className="font-medium">registrations</span>,<span className="font-medium">tax filings</span>, and
+            other
+            <span className="font-medium">legal matters</span>.
+          </p>
+
+          {/* Stats */}
+          <div className="flex gap-12 py-6">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-gray-900">4.5+</div>
+              <div className="text-sm text-gray-600">Customer Rating</div>
             </div>
-        <img src="/poster.png" alt="Poster" className="w-full h-auto" />
-      
-      <div className="flex justify-center space-x-4">
-        <hr className="my-8 border-t-2 border-gray-300" />
-        <img src="/Screenshot 2025-01-21 220633.png" alt="Company logos" className="w-full h-auto" />
+            <div className="text-center">
+              <div className="text-2xl font-bold text-gray-900">20,000+</div>
+              <div className="text-sm text-gray-600">Clients</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-gray-900">99.8%</div>
+              <div className="text-sm text-gray-600">Financial Stability</div>
+            </div>
+          </div>
+
+          {/* CTAs */}
+          <div className="flex items-center gap-6">
+            <button className="bg-blue-900 text-white px-8 py-4 rounded-lg hover:bg-blue-800 transition-colors">
+              Get Started For Free
+            </button>
+            <button className="flex items-center gap-2 text-gray-700 hover:text-gray-900">
+              <span className="bg-orange-100 p-1 rounded-full">
+                <div className="w-6 h-6 flex items-center justify-center bg-orange-500 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="w-4 h-4 text-white"
+                  >
+                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                  </svg>
+                </div>
+              </span>
+              See how it works
+            </button>
+          </div>
+        </div>
+
+        {/* Right Column / Illustration */}
+        <div className="relative">
+          <img
+            src='/banner.png'
+            alt="Business compliance illustration"
+            className="w-full"
+          />
+          <div className="absolute bottom-0 -right-16">
+            <img
+            src='/arrow.png'
+            alt="Business compliance illustration"
+            className="w-full"
+          />
+          </div>
+        </div>
       </div>
-      <ServicesSection />
     </div>
   );
 };
