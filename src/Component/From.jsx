@@ -1,60 +1,54 @@
-import React from "react";
-import { FaSpotify, FaSlack, FaDropbox, FaVideo } from "react-icons/fa"; // Import icons
-import { SiCoinbase, SiWebflow } from "react-icons/si"; // Additional icons
+export default function HeroSection() {
+  const features = ["Instant results", "User-friendly interface", "Personalized customization"]
 
-const HeroSection = () => {
   return (
-    <div>
-      {/* First Section with Gradient Background */}
-      <div className="bg-gradient-to-r from-orange-500 to-blue-600 text-white py-16">
-        <div className="text-center max-w-2xl mx-auto">
-          <p className="uppercase text-sm font-semibold">1% of the Industry</p>
-          <h1 className="text-4xl font-bold mt-2">Welcome to your new digital reality. Now.</h1>
-          <div className="mt-6">
-            <form className="flex justify-center">
-              <input
-                type="email"
-                placeholder="Enter Your Email"
-                className="w-full max-w-md px-4 py-2 rounded-l-lg focus:outline-none text-gray-800"
-              />
-              <button
-                type="submit"
-                className="bg-orange-500 px-6 py-2 rounded-r-lg hover:bg-orange-600 transition"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-          <div className="flex justify-center gap-4 mt-8">
-            <div className="flex items-center gap-2">
-              <span className="text-green-400">✔</span>
-              <span>Instant results</span>
+    <section
+      className="w-[1700px] h-[434px] mx-auto"
+      style={{
+        background: "linear-gradient(96.22deg, #FFA229 9%, #1C4670 59.37%)",
+      }}
+    >
+      <div className="max-w-[752px] mx-auto pt-16 text-center">
+        <p className="text-white/90 text-sm font-medium tracking-wide mb-4">1% OF THE INDUSTRY</p>
+
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-8">Welcome to your new digital reality. Now.</h1>
+
+        <div className="flex mb-8">
+          <input
+            type="email"
+            placeholder="Enter Your Email"
+            className="flex-1 px-4 py-3 rounded-l-md focus:outline-none"
+          />
+          <button className="bg-[#FFA229] text-white px-8 py-3 rounded-r-md hover:bg-[#FF8A1E] transition-colors">
+            Submit
+          </button>
+        </div>
+
+        <div className="flex justify-center gap-6 h-[68px] items-center">
+          {features.map((feature, index) => (
+            <div key={index} className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                <svg
+                  className="w-4 h-4 text-[#1C4670]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 6L9 17L4 12"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <span className="text-white text-sm font-medium whitespace-nowrap">{feature}</span>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-green-400">✔</span>
-              <span>User-friendly interface</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-green-400">✔</span>
-              <span>Personalized customization</span>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+    </section>
+  )
+}
 
-      {/* Second Section with White Background */}
-      <div className="bg-white py-12">
-        <div className="flex justify-center gap-6 text-gray-700 text-4xl">
-          <SiCoinbase title="Coinbase" />
-          <FaSpotify title="Spotify" />
-          <FaSlack title="Slack" />
-          <FaDropbox title="Dropbox" />
-          <SiWebflow title="Webflow" />
-          <FaVideo title="Video (Zoom)" />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default HeroSection;

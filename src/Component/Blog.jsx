@@ -148,74 +148,11 @@ const Blog = () => {
         Show more blogs &gt;
       </a>
 
-      <div className="py-10 mt-10" style={{ backgroundColor: "rgba(28, 70, 112, 1)" }}>
-        <h2 className="text-center text-white text-3xl font-bold mb-8">
-          What peoples says about us
-        </h2>
-        <div className="relative flex justify-center items-center">
-          {/* Left Arrow */}
-          <button
-            onClick={handlePrev}
-            className="absolute left-0 text-white bg-blue-700 p-3 rounded-full hover:bg-blue-800 z-10"
-          >
-            <FaArrowLeft size={20} />
-          </button>
-
-          {/* Slider */}
-          <div className="w-[80%] flex justify-center items-center">
-            <div
-              key={testimonials[currentIndex].id}
-              className="w-full bg-white rounded-lg shadow-md p-6 m-4 flex-shrink-0"
-            >
-              <FaQuoteLeft className="text-blue-600 text-3xl mb-4" />
-              <p className="text-gray-600 mb-6">{testimonials[currentIndex].text}</p>
-              <div className="flex items-center space-x-4">
-                <img
-                  src={testimonials[currentIndex].image}
-                  alt={testimonials[currentIndex].name}
-                  className="w-12 h-12 rounded-full"
-                />
-                <div>
-                  <h4 className="text-gray-800 font-bold">
-                    {testimonials[currentIndex].name}
-                  </h4>
-                  <p className="text-gray-500 text-sm">
-                    {testimonials[currentIndex].role}
-                  </p>
-                </div>
-              </div>
-              {/* Stars */}
-              <div className="flex mt-4">
-                {[...Array(5)].map((_, index) => (
-                  <FaStar key={index} className="text-yellow-500" />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Arrow */}
-          <button
-            onClick={handleNext}
-            className="absolute right-0 text-white bg-blue-700 p-3 rounded-full hover:bg-blue-800 z-10"
-          >
-            <FaArrowRight size={20} />
-          </button>
+      
+         
         </div>
-
-        {/* Pagination */}
-        <div className="flex justify-center mt-6 space-x-2">
-          {testimonials.map((_, index) => (
-            <div
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full cursor-pointer ${
-                index === currentIndex ? "bg-blue-600" : "bg-gray-400"
-              }`}
-            ></div>
-          ))}
-        </div>
-      </div>
-    </div>
+    
+  
   );
 };
 

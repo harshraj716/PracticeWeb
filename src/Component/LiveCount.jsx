@@ -1,52 +1,71 @@
-import React from 'react';
-
-const Counter = ({ displayValue, label }) => {
-  return (
-    <div className="text-center">
-      <p className="text-5xl font-bold" style={{ color: '#7A5C3E' }}>{displayValue}</p>
-      <p className="mt-2 text-base font-medium" style={{ color: '#6A5B54' }}>{label}</p>
-    </div>
-  );
-};
-
-const LiveCount = () => {
+export default function StatisticsSection() {
   const stats = [
-    { displayValue: '1M+', label: 'Customers' },
-    { displayValue: '12+', label: 'Years of Excellence' },
-    { displayValue: '41+', label: 'R&D Engineers' },
-    { displayValue: '78+', label: 'Countries' },
-    { displayValue: '3287+', label: 'Partners' },
-    { displayValue: '41+', label: 'Awards Received' },
-  ];
+    {
+      number: "1M",
+      label: "CUSTOMERS",
+    },
+    {
+      number: "12",
+      label: "YEARS OF EXCELLENCE",
+      specialGradient: true,
+    },
+    {
+      number: "41",
+      label: "R&D ENGINEERS",
+    },
+    {
+      number: "78",
+      label: "COUNTRIES",
+    },
+    {
+      number: "3287",
+      label: "PARTNERS",
+    },
+    {
+      number: "41",
+      label: "AWARDS RECEIVED",
+    },
+  ]
 
   return (
-    <div className="text-center bg-white py-10">
-      <h2
-        className="text-lg font-semibold uppercase tracking-wide"
-        style={{ color: '#D88E54' }}
-      >
-        Why Register Karo
-      </h2>
-      <h3
-        className="mt-2 text-2xl font-extrabold"
-        style={{ color: '#4A372A' }}
-      >
-        Some Numbers Are Important
-      </h3>
-      <div className="mt-8 flex flex-wrap justify-center gap-10">
-        {stats.map((stat, index) => (
-          <Counter key={index} displayValue={stat.displayValue} label={stat.label} />
-        ))}
-      </div>
-      <div className="mt-8">
-        <div>
-          <a href="https://play.google.com/store/apps/details?id=yourapp">
-            <img src="live poster.png" alt="Live Poster" className="mx-auto mt-4" style={{ width: '100%', height: '100vh' }} />
-          </a>
+    <section className="py-16">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <span className="text-[background: #EB8D15;] uppercase text-sm font-semibold tracking-wider">WHY REGISTER KARO</span>
+          <h2 className="text-3xl font-bold text-[#2D1D0C] mt-2">Some Numbers are important</h2>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          {stats.map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="inline-block mb-3">
+                <span
+                  className={`text-4xl md:text-5xl font-bold text-transparent bg-clip-text`}
+                  style={{
+                    backgroundImage: stat.specialGradient
+                      ? "linear-gradient(152.74deg, #F53843 10%, #2F5795 68%)"
+                      : "linear-gradient(127.81deg, #FFA229 10%, #1C4670 68%)",
+                  }}
+                >
+                  {stat.number}
+                </span>
+                <span
+                  className={`text-4xl md:text-5xl font-bold text-transparent bg-clip-text`}
+                  style={{
+                    backgroundImage: stat.specialGradient
+                      ? "linear-gradient(152.74deg, #F53843 10%, #2F5795 68%)"
+                      : "linear-gradient(127.81deg, #FFA229 10%, #1C4670 68%)",
+                  }}
+                >
+                  +
+                </span>
+              </div>
+              <p className="text-sm font-medium text-gray-600 uppercase tracking-wide">{stat.label}</p>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
-  );
-};
+    </section>
+  )
+}
 
-export default LiveCount;

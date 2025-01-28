@@ -13,6 +13,7 @@ import WhySection from "./Component/Why-section";
 import ServicesSection from "./Component/Service";
 import VideoSection from "./Component/Video-section";
 import ProcessSteps from "./Component/Process-steps";
+import Testimonials from "./Component/testimonials";
 
 const App = () => {
   return (
@@ -27,6 +28,8 @@ const App = () => {
         <VideoSection/>
         <ProcessSteps />
         <Blog />  
+        <Testimonials />
+        
         <Questions />
         <LiveCount />
         <From />

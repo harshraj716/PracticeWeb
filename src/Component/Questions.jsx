@@ -1,98 +1,114 @@
-import React, { useState } from 'react';
-import { FaChevronRight, FaChevronDown } from 'react-icons/fa';
+"use client"
 
-const FAQs = () => {
-  const questions = [
+import { useState } from "react"
+
+export default function FAQSection() {
+  const [openIndex, setOpenIndex] = useState(null)
+  const [showAll, setShowAll] = useState(false)
+
+  const faqs = [
     {
-      id: 1,
       question: "Can I recover deleted files from desktop with this software?",
-      answer: "Yes, this software is designed to recover deleted files from desktops. Ensure that the drive isn't overwritten before using the tool.",
+      answer:
+        "Yes, our software provides comprehensive file recovery capabilities for desktop systems. It can recover various types of deleted files including documents, images, videos, and more. The recovery process is simple and user-friendly.",
     },
     {
-      id: 2,
-      question: "Is this software free to use?",
-      answer: "The software comes with a free trial version, but advanced features are part of the premium version.",
+      question: "Can I recover deleted files from desktop with this software?",
+      answer:
+        "The software supports multiple file systems and can recover files from both internal and external storage devices. It uses advanced algorithms to ensure maximum recovery success.",
     },
     {
-      id: 3,
-      question: "Does it work on both Windows and Mac?",
-      answer: "Absolutely! The software is compatible with both Windows and Mac operating systems.",
+      question: "Can I recover deleted files from desktop with this software?",
+      answer:
+        "Our software includes features like deep scan and quick scan options, allowing you to choose the most appropriate method for your situation. It's designed to recover files even after accidental deletion or formatting.",
     },
     {
-      id: 4,
-      question: "How long does it take to recover files?",
-      answer: "Recovery time depends on the size of the drive and the number of files being recovered.",
+      question: "Can I recover deleted files from desktop with this software?",
+      answer:
+        "The recovery process is safe and read-only, meaning it won't cause any additional damage to your files or system. You can preview files before recovery to ensure you're getting exactly what you need.",
     },
     {
-      id: 5,
-      question: "Is technical support available?",
-      answer: "Yes, our dedicated technical support team is available 24/7 to assist you with any issues.",
+      question: "Can I recover deleted files from desktop with this software?",
+      answer:
+        "We offer 24/7 technical support to assist you with any questions or issues during the recovery process. Our team is highly trained and ready to help you recover your important files.",
     },
-  ];
+    {
+      question: "Can I recover deleted files from desktop with this software?",
+      answer:
+        "We offer 24/7 technical support to assist you with any questions or issues during the recovery process. Our team is highly trained and ready to help you recover your important files.",
+    },
+    {
+      question: "Can I recover deleted files from desktop with this software?",
+      answer:
+        "We offer 24/7 technical support to assist you with any questions or issues during the recovery process. Our team is highly trained and ready to help you recover your important files.",
+    },
+    
+  ]
 
-  const [expanded, setExpanded] = useState(null);
-
-  const toggleExpand = (id) => {
-    setExpanded((prev) => (prev === id ? null : id));
-  };
+  const displayedFaqs = showAll ? faqs : faqs.slice(0, 5)
 
   return (
-    <div className="py-10 bg-gray-50">
-      <h2 className="text-center text-2xl font-bold text-gray-800 mb-6">
-        Frequent Ask Questions
-      </h2>
-      <div className="max-w-4xl mx-auto">
-        {questions.map((item) => (
-          <div
-            key={item.id}
-            className="border rounded-lg overflow-hidden shadow-sm mb-4"
-          >
-            <button
-              onClick={() => toggleExpand(item.id)}
-              className="w-full text-left px-6 py-4 bg-white flex items-center justify-between hover:bg-gray-100 transition-all duration-300"
-            >
-              <span className="font-medium text-gray-800">{item.question}</span>
-              {expanded === item.id ? (
-                <FaChevronDown className="text-gray-500" />
-              ) : (
-                <FaChevronRight className="text-gray-500" />
-              )}
-            </button>
-            {expanded === item.id && (
-              <div
-                className="px-6 py-4 text-gray-600 bg-gray-50 border-t animate-slide-down"
-                style={{
-                  animation: "slideDown 0.3s ease-in-out",
-                }}
+    <section className="py-16 max-w-4xl mx-auto px-4">
+      <div className="text-center mb-12">
+        <span className="text-[#FFA229] uppercase text-sm font-semibold tracking-wider">FAQ</span>
+        <h2 className="text-3xl font-bold text-[#2D1D0C] mt-2">Frequent Ask Questions</h2>
+      </div>
+
+      <div className="space-y-4">
+        {displayedFaqs.map((faq, index) => (
+          <div key={index} className="relative overflow-hidden">
+            {/* Gradient Border */}
+            <div
+              className="absolute left-0 top-0 bottom-0 w-1"
+              style={{
+                background: "linear-gradient(to bottom, #FFA229 0%, #1C4670 100%)",
+              }}
+            />
+
+            <div className="border rounded-lg shadow-sm bg-white">
+              <button
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
               >
-                {item.answer}
+                <span className="font-medium text-gray-900">{faq.question}</span>
+                <svg
+                  className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${
+                    openIndex === index ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              <div
+                className={`transition-all duration-200 ease-in-out ${
+                  openIndex === index ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
+                } overflow-hidden`}
+              >
+                <div className="px-6 pb-4 text-gray-600">{faq.answer}</div>
               </div>
-            )}
+            </div>
           </div>
         ))}
       </div>
-      <div className="flex justify-center mt-6">
-        <button className="bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition duration-300">
-          Show more →
-        </button>
-      </div>
 
-      <style jsx>
-        {`
-          @keyframes slideDown {
-            from {
-              opacity: 0;
-              transform: translateY(-10px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-        `}
-      </style>
-    </div>
-  );
-};
+      {faqs.length > 3 && (
+        <div className="text-center mt-8">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="bg-gradient-to-r from-[#FFA229] to-[#1C4670] text-white px-6 py-2 rounded-md hover:opacity-90 transition-opacity inline-flex items-center gap-2"
+          >
+            Show {showAll ? "less" : "more"}
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      )}
+    </section>
+  )
+}
 
-export default FAQs;
