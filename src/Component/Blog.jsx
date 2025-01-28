@@ -1,108 +1,133 @@
-import React, { useState } from 'react';
-import { FaStar, FaQuoteLeft, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+const BlogCard = ({ author, date, title, description, tags, image, href = "#" }) => {
+  return (
+    <article className="flex flex-col space-y-4">
+      <img src={image || "/placeholder.svg"} alt="" className="w-full aspect-[4/3] object-cover rounded-lg" />
+      <div className="space-y-4">
+        <div className="space-y-1">
+          <div className="flex items-center text-sm text-gray-600">
+            <span>{author}</span>
+            <span className="mx-2">•</span>
+            <span>{date}</span>
+          </div>
+          <a href={href} className="group">
+            <h3 className="text-xl font-semibold text-gray-900 group-hover:text-gray-600">
+              <span className="flex items-center gap-2">
+                {title}
+                <svg
+                  width="24"
+                  height="28"
+                  viewBox="0 0 24 28"
+                  fill="none"
+                  className="transition-transform group-hover:translate-x-1"
+                >
+                  <path
+                    d="M7 21L17 11M17 11H7M17 11V21"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </h3>
+          </a>
+          <p className="text-gray-600">{description}</p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag, index) => (
+            <span
+              key={index}
+              className={`px-3 py-1 text-sm rounded-full ${
+                tag.type === "purple"
+                  ? "bg-[#F9F5FF] text-[#C11574]"
+                  : tag.type === "blue"
+                    ? "bg-[#EEF4FF] text-blue-700"
+                    : tag.type === "pink"
+                      ? "bg-[#FDF2FA] text-[#C01048]"
+                      : "bg-[#FFF1F3] text-[#C01048]"
+              }`}
+            >
+              {tag.text}
+            </span>
+          ))}
+        </div>
+      </div>
+    </article>
+  )
+}
 
-const blogs = [
-  {
-    id: 1,
-    title: "Small business & Startup",
-    author: "Prabhash Mishra",
-    date: "1 Jan 2023 - Today",
-    description: "Like to know the secrets of transforming a 2-14 team into a 3x Super Bowl winning Dynasty?",
-    tags: ["Tax & Audit", "Management"],
-    image: "/blog1.jpeg",
-  },
-  {
-    id: 2,
-    title: "Scale-Up Company Offer",
-    author: "Mahesh Kumar",
-    date: "1 Jan 2023",
-    description: "Mental models are simple expressions of complex processes or relationships.",
-    tags: ["Tax", "Research", "Compliance"],
-    image: "/blog2.jpeg",
-  },
-  {
-    id: 3,
-    title: "Growing Business Package",
-    author: "Rakhi Verma",
-    date: "1 Jan 2023",
-    description: "Introduction to Wireframing and its Principles. Learn from the best in the industry.",
-    tags: ["Audit", "Money Back"],
-    image: "/6b913ddf85158d3f3246fba7da982400.jpeg",
-  },
-  {
-    id: 4,
-    title: "Growing Business Package",
-    author: "Rakhi Verma",
-    date: "1 Jan 2023",
-    description: "Introduction to Wireframing and its Principles. Learn from the best in the industry.",
-    tags: ["Audit", "Money Back"],
-    image: "/ab8c0e971321e0daafdbc3bc3adffb48.jpeg",
-  },
-  {
-    id: 5,
-    title: "Growing Business Package",
-    author: "Rakhi Verma",
-    date: "1 Jan 2023",
-    description: "Introduction to Wireframing and its Principles. Learn from the best in the industry.",
-    tags: ["Audit", "Money Back"],
-    image: "/blog5.jpg",
-  },
-  {
-    id: 6,
-    title: "Growing Business Package",
-    author: "Rakhi Verma",
-    date: "1 Jan 2023",
-    description: "Introduction to Wireframing and its Principles. Learn from the best in the industry.",
-    tags: ["Audit", "Money Back"],
-    image: "/blog2.jpeg",
-  },
-];
-
-const testimonials = [
-  {
-    id: 1,
-    text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident.",
-    name: "Chris",
-    role: "President and CEO, PrintReach, USA",
-    image: "/path/to/image1.jpg",
-  },
-  {
-    id: 2,
-    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
-    name: "Sophia",
-    role: "Marketing Head, ABC Corp, UK",
-    image: "/path/to/image2.jpg",
-  },
-  {
-    id: 3,
-    text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
-    name: "Liam",
-    role: "Founder, XYZ Startup, USA",
-    image: "/path/to/image3.jpg",
-  },
-  {
-    id: 4,
-    text: "Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.",
-    name: "Emily",
-    role: "CTO, DEF Ltd, Germany",
-    image: "/path/to/image4.jpg",
-  },
-];
-
-const Blog = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+export default function BlogSection() {
+  const blogs = [
+    {
+      author: "Prabhash Mishra",
+      date: "1 Jan 2023",
+      title: "Small business & Startup",
+      description: "Like to know the secrets of transforming a 2-14 team into a 3x Super Bowl winning Dynasty?",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image%20(5)-qJN0KU5FIbWiZupY8uuHI6EPywYCW2.svg",
+      tags: [
+        { text: "Tax & Audit", type: "purple" },
+        { text: "Management", type: "blue" },
+      ],
+    },
+    {
+      author: "Mahesh Kumar",
+      date: "1 Jan 2023",
+      title: "Scale-Up Company Offer",
+      description: "Mental models are simple expressions of complex processes or relationships.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image%20(2)-EMvTGbYHs0liFOJFbpnJw7DYaFxLxg.svg",
+      tags: [
+        { text: "Tax", type: "blue" },
+        { text: "Research", type: "purple" },
+        { text: "Compliance", type: "pink" },
+      ],
+    },
+    {
+      author: "Rakhi Verma",
+      date: "1 Jan 2023",
+      title: "Growing Business Package",
+      description: "Introduction to Wireframing and Its Principles. Learn from the best in the industry.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image%20(6)-j819ZCNErkYn3263Lz3eol36Zqnl8C.svg",
+      tags: [
+        { text: "Audit", type: "purple" },
+        { text: "Money Back", type: "blue" },
+      ],
+    },
+    {
+      author: "Karan Kumar",
+      date: "1 Jan 2023",
+      title: "Scale-Up Company Offer",
+      description: "Collaboration can make our teams stronger, and our individual designs better.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image%20(4)-pC35249vgulQ6CpTuU9D80JqHGapi7.svg",
+      tags: [
+        { text: "Money", type: "purple" },
+        { text: "Management", type: "blue" },
+      ],
+    },
+    {
+      author: "Richa Singh",
+      date: "1 Jan 2023",
+      title: "Scale-Up Company Offer",
+      description: "JavaScript frameworks make development easy with extensive features and functionalities.",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Frame%201000003386-N8V1U61AP0nBQ43zBcOM8EMcJohPtN.png",
+      tags: [
+        { text: "Tax Return", type: "blue" },
+        { text: "News", type: "purple" },
+        { text: "Audit", type: "pink" },
+      ],
+    },
+    {
+      author: "Miss Nora",
+      date: "1 Jan 2023",
+      title: "Scale-Up Company Offer",
+      description: "Starting a community doesn't need to be complicated, but how do you get started?",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Icon%20wrap-iWYXlxBjsjw8t9ne5S9Bsc9KHyLwlA.svg",
+      tags: [
+        { text: "Private Limited Company", type: "purple" },
+        { text: "Customer Success", type: "blue" },
+      ],
+    },
+  ]
 
   return (
     <div className="text-center  py-10 px-20 overflow-x-hidden">
@@ -148,12 +173,32 @@ const Blog = () => {
         Show more blogs &gt;
       </a>
 
-      
-         
-        </div>
-    
-  
-  );
-};
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {blogs.map((blog, index) => (
+        <BlogCard key={index} {...blog} />
+      ))}
+    </div>
 
-export default Blog;
+    <div className="flex justify-center mt-12">
+      <button className="flex items-center gap-2 px-6 py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">
+        Show more blogs
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+
+  )
+}
+

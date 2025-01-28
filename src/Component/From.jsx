@@ -11,9 +11,9 @@ export default function HeroSection() {
       <div className="max-w-[752px] mx-auto pt-16 text-center">
         <p className="text-white/90 text-sm font-medium tracking-wide mb-4">1% OF THE INDUSTRY</p>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-8">Welcome to your new digital reality. Now.</h1>
+        <h1 className="text-1xl md:text-4xl font-bold text-white mb-8">Welcome to your new digital reality. Now.</h1>
 
-        <div className="flex mb-8">
+        <div className="flex mb-5">
           <input
             type="email"
             placeholder="Enter Your Email"

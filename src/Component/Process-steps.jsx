@@ -51,7 +51,7 @@ export default function ProcessSteps() {
     ]
   
     return (
-      <div className="bg-[#FF8A1E] py-8">
+      <div className="bg-[#FFA229] py-8">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (

@@ -15,6 +15,7 @@ import VideoSection from "./Component/Video-section";
 import ProcessSteps from "./Component/Process-steps";
 import Testimonials from "./Component/testimonials";
 import HappyClients from "./Component/HappyClient";
+import Company from "./Component/company";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
         <Questions />
         <LiveCount />
         <From />
+        <Company />
         <Footer />
       </div>
     </Router>
