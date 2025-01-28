@@ -1,156 +1,99 @@
-import { useState } from "react"
-
-export default function Testimonials() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  const testimonials = [
-    {
-      text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure sint amet occaecat cupidatat non proident.",
-      author: "Chris",
-      position: "President and CEO, PrintReach, USA",
-      rating: 4.5,
-      avatar: "/placeholder.svg",
-    },
-    {
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      author: "Sarah",
-      position: "Marketing Director, TechGrow, Canada",
-      rating: 5,
-      avatar: "/placeholder.svg",
-    },
-    {
-      text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
-      author: "Michael",
-      position: "CTO, InnovateCorp, UK",
-      rating: 4,
-      avatar: "/placeholder.svg",
-    },
-    {
-      text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.",
-      author: "Emily",
-      position: "Product Manager, SoftSolutions, Australia",
-      rating: 4.5,
-      avatar: "/placeholder.svg",
-    },
-    {
-      text: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-      author: "David",
-      position: "Founder, EcoTech, Germany",
-      rating: 5,
-      avatar: "/placeholder.svg",
-    },
-  ]
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % testimonials.length)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
-
-  const renderStars = (rating) => {
-    return [...Array(5)].map((_, index) => (
-      <svg
-        key={index}
-        className={`w-5 h-5 ${
-          index < Math.floor(rating) ? "text-yellow-400" : index < rating ? "text-yellow-400" : "text-gray-300"
-        }`}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-      </svg>
-    ))
-  }
-
-  return (
-    <section className="bg-[#1B365D] py-16">
-      <div className="max-w-[1400px] mx-auto px-4">
-        <div className="flex justify-between items-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">What peoples says about us</h2>
-          <div className="flex gap-4">
-            <button
-              onClick={prevSlide}
-              className="w-10 h-10 rounded-full bg-white text-[#1B365D] flex items-center justify-center hover:bg-opacity-90 transition-colors"
-              aria-label="Previous slide"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              onClick={nextSlide}
-              className="w-10 h-10 rounded-full bg-[#FF8A1E] text-white flex items-center justify-center hover:bg-opacity-90 transition-colors"
-              aria-label="Next slide"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <div className="relative overflow-hidden">
-          <div
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-          >
-            {testimonials.map((testimonial, index) => (
-              <div
-                className="w-full md:w-[40%] flex-shrink-0 px-3"
-              >
-                <div className="bg-white rounded-lg p-6 h-[300px] flex flex-col justify-between">
-                  <div>
-                    <div className="flex justify-between items-start mb-4">
-                      <span className="text-4xl text-[#1B365D] font-serif">"</span>
-                      <div className="flex gap-1">{renderStars(testimonial.rating)}</div>
-                    </div>
-                    <p className="text-gray-600 mb-6 text-sm line-clamp-4">{testimonial.text}</p>
+export default function VideoSection() {
+    return (
+      <section className="bg-[#1B365D] py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-8 text-white">
+              <div className="space-y-4">
+                <h2 className="text-4xl font-bold">Our Video Introductions</h2>
+                <p className="text-gray-400">
+                  Velit purus egestas tellus phasellus. Mattis eget sed faucibus magna vulputate pellentesque a diam
+                  tincidunt apis dui.
+                </p>
+              </div>
+  
+              <div className="space-y-8">
+                {/* Feature 1 */}
+                <div className="flex items-start gap-4">
+                  <div className="bg-[#FF8A1E] rounded-full p-4 flex-shrink-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M8.5 14.5A4 4 0 0 0 12 16a4 4 0 0 0 3.5-1.5" />
+                      <line x1="9" y1="9" x2="9.01" y2="9" />
+                      <line x1="15" y1="9" x2="15.01" y2="9" />
+                    </svg>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={testimonial.avatar || "/placeholder.svg"}
-                      alt={testimonial.author}
-                      className="w-10 h-10 rounded-full object-cover"
-                    />
-                    <div>
-                      <h3 className="font-semibold text-[#1B365D] text-sm">{testimonial.author}</h3>
-                      <p className="text-xs text-gray-600">{testimonial.position}</p>
-                    </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Explore ideas together</h3>
+                    <p className="text-gray-400">
+                      Engage audience segments and finally create actionable insights. Amplify vertical integration.
+                    </p>
+                  </div>
+                </div>
+  
+                {/* Feature 2 */}
+                <div className="flex items-start gap-4">
+                  <div className="bg-[#FF8A1E] rounded-full p-4 flex-shrink-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                    </svg>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Bring those ideas to life</h3>
+                    <p className="text-gray-400">
+                      Engage audience segments and finally create actionable insights. Amplify vertical integration.
+                    </p>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
+  
+            {/* Right Video */}
+            <div className="relative aspect-video rounded-lg overflow-hidden">
+              <img
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%201000005965-jl2OrZMSsNnFjxZKCEdrUTvXoYNdGx.png"
+                alt="Video thumbnail"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <button
+                  className="bg-red-600 hover:bg-red-700 transition-colors rounded-full p-4"
+                  aria-label="Play video"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-8 h-8 text-white"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div className="flex justify-center gap-2 mt-8">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentSlide ? "bg-[#FF8A1E]" : "bg-white bg-opacity-50"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
+      </section>
+    )
+  }
+  
+  
