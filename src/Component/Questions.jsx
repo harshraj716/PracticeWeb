@@ -99,7 +99,7 @@ export default function FAQSection() {
         <div className="text-center mt-8">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="bg-gradient-to-r from-[#FFA229] to-[#1C4670] text-white px-6 py-2 rounded-md hover:opacity-90 transition-opacity inline-flex items-center gap-2"
+            className="bg-[#1C4670] text-white px-6 py-2 rounded-md hover:opacity-90 transition-opacity inline-flex items-center gap-2"
           >
             Show {showAll ? "less" : "more"}
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

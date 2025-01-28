@@ -1,18 +1,19 @@
 const BlogCard = ({ author, date, title, description, tags, image, href = "#" }) => {
   return (
-    <article className="flex flex-col space-y-4">
+    <article className="flex flex-col space-y-6">
       <img src={image || "/placeholder.svg"} alt="" className="w-full aspect-[4/3] object-cover rounded-lg" />
       <div className="space-y-4">
-        <div className="space-y-1">
-          <div className="flex items-center text-sm text-gray-600">
+        <div className="space-y-2">
+          <div className="flex items-center text-sm font-semibold mb-3 text-gray-600">
             <span>{author}</span>
             <span className="mx-2">•</span>
             <span>{date}</span>
           </div>
-          <a href={href} className="group">
+          <div className=" flex  justify-between">
             <h3 className="text-xl font-semibold text-gray-900 group-hover:text-gray-600">
+            {title}
+            </h3>
               <span className="flex items-center gap-2">
-                {title}
                 <svg
                   width="24"
                   height="28"
@@ -29,9 +30,8 @@ const BlogCard = ({ author, date, title, description, tags, image, href = "#" })
                   />
                 </svg>
               </span>
-            </h3>
-          </a>
-          <p className="text-gray-600">{description}</p>
+          </div>
+          <p className="text-gray-500">{description}</p>
         </div>
         <div className="flex flex-wrap gap-2">
           {tags.map((tag, index) => (
@@ -130,75 +130,38 @@ export default function BlogSection() {
   ]
 
   return (
-    <div className="text-center  py-10 px-20 overflow-x-hidden">
-      <p className="text-orange-500 uppercase text-sm font-bold">Explore Our Blogs</p>
-      <h2 className="text-3xl font-bold text-gray-800 mt-2">
-        Accelerate Digital Transformation
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-        {blogs.map((blog) => (
-          <div key={blog.id} className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-            <img
-              src={blog.image}
-              alt={blog.title}
-              className="w-full h-60 object-cover"
-            />
-            <div className="p-4">
-              <p className="text-sm text-gray-500">
-                {blog.author} • {blog.date}
-              </p>
-              <h3 className="text-lg font-semibold mt-2 text-gray-800 hover:text-blue-600 cursor-pointer">
-                {blog.title} <span className="ml-2">↗</span>
-              </h3>
-              <p className="text-sm text-gray-600 mt-2">{blog.description}</p>
-              <div className="flex flex-wrap gap-2 mt-3">
-                {blog.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="text-xs bg-blue-100 text-blue-600 py-1 px-3 rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
+    <section className="py-16 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <span className="text-orange-500 font-medium">EXPLORE OUR BLOGS</span>
+          <h2 className="text-3xl font-bold mt-2">Accelerate Digital Transformation</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogs.map((blog, index) => (
+            <BlogCard key={index} {...blog} />
+          ))}
+        </div>
+
+        <div className="flex justify-center mt-12">
+          <button className="flex items-center gap-2 px-6 py-3 text-white bg-[#1C4670] rounded-lg hover:bg-blue-700 transition-colors">
+            Show more blogs
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
       </div>
-      <a
-        href="#"
-        className="mt-10 inline-block text-white font-medium transition-colors"
-        style={{ backgroundColor: 'rgba(28, 70, 112, 1)', padding: '10px 20px', borderRadius: '5px' }}
-      >
-        Show more blogs &gt;
-      </a>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {blogs.map((blog, index) => (
-        <BlogCard key={index} {...blog} />
-      ))}
-    </div>
-
-    <div className="flex justify-center mt-12">
-      <button className="flex items-center gap-2 px-6 py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">
-        Show more blogs
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-      </button>
-    </div>
-  </div>
-
-
+    </section>
   )
 }
 

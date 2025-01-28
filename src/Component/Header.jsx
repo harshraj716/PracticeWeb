@@ -1,5 +1,13 @@
-import React from 'react';
-import { FaCog, FaChartBar, FaBuilding, FaCube, FaShoppingCart, FaFileAlt, FaArrowCircleDown } from 'react-icons/fa';
+import React from "react";
+import {
+  FaCog,
+  FaChartBar,
+  FaBuilding,
+  FaCube,
+  FaShoppingCart,
+  FaFileAlt,
+  FaArrowCircleDown,
+} from "react-icons/fa";
 
 // ServiceCard Component
 const ServiceCard = ({ icon, title, description }) => {
@@ -17,7 +25,9 @@ const ServiceCard = ({ icon, title, description }) => {
       <div className="text-4xl">{iconMap[icon]}</div>
       <h3 className="mt-4 text-lg font-semibold">{title}</h3>
       <p className="mt-2 text-gray-600">{description}</p>
-      <a href="#" className="mt-4 text-blue-500 hover:underline">Learn more</a>
+      <a href="#" className="mt-4 text-blue-500 hover:underline">
+        Learn more
+      </a>
     </div>
   );
 };
@@ -34,43 +44,61 @@ const AnimatedArrow = () => {
 // ServicesSection Component
 const servicesData = [
   {
-    icon: 'companyFormation',
-    title: 'Company Formation',
-    description: 'Build web-based solutions that enhance customer experience.',
+    icon: "companyFormation",
+    title: "Company Formation",
+    description: "Build web-based solutions that enhance customer experience.",
   },
   {
-    icon: 'secretarialServices',
-    title: 'Company Secretarial Services',
-    description: 'Make data-driven decisions and utilize technology to reach business goals.',
+    icon: "secretarialServices",
+    title: "Company Secretarial Services",
+    description:
+      "Make data-driven decisions and utilize technology to reach business goals.",
   },
   {
-    icon: 'virtualOffice',
-    title: 'Virtual Office Address',
-    description: 'Foster customer relationships by effectively serving your market.',
+    icon: "virtualOffice",
+    title: "Virtual Office Address",
+    description:
+      "Foster customer relationships by effectively serving your market.",
   },
   {
-    icon: 'complianceServices',
-    title: 'Annual Compliance Services',
-    description: 'Turn your ideas into modern products with our design experts.',
+    icon: "complianceServices",
+    title: "Annual Compliance Services",
+    description:
+      "Turn your ideas into modern products with our design experts.",
   },
   {
-    icon: 'payrollServices',
-    title: 'Payroll Services',
-    description: 'Expand your business across the globe with minimal effort.',
+    icon: "payrollServices",
+    title: "Payroll Services",
+    description: "Expand your business across the globe with minimal effort.",
   },
   {
-    icon: 'bookkeepingServices',
-    title: 'Bookkeeping Services',
-    description: 'Steering user behaviours with creative design, data insights & technology.',
+    icon: "bookkeepingServices",
+    title: "Bookkeeping Services",
+    description:
+      "Steering user behaviours with creative design, data insights & technology.",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section className="mt-10 p-6" style={{ backgroundColor: 'rgba(250, 250, 250, 1)', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
-      <h5 className="text-2xl font-bold mb-6 text-center" style={{ color: 'rgba(235, 141, 21, 1)' }}>WELCOME TO REGISTERKARO.IN</h5>
+    <section
+      className="mt-10 p-6"
+      style={{
+        backgroundColor: "rgba(250, 250, 250, 1)",
+        borderRadius: "8px",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+      }}
+    >
+      <h5
+        className="text-2xl font-bold mb-6 text-center"
+        style={{ color: "rgba(235, 141, 21, 1)" }}
+      >
+        WELCOME TO REGISTERKARO.IN
+      </h5>
       <AnimatedArrow />
-      <h2 className="text-2xl font-bold mt-6 text-center">Explore Our Services</h2>
+      <h2 className="text-2xl font-bold mt-6 text-center">
+        Explore Our Services
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {servicesData.map((service, index) => (
           <ServiceCard
@@ -82,7 +110,9 @@ const ServicesSection = () => {
         ))}
       </div>
       <div className="flex justify-center mt-6">
-        <button className="bg-blue-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition ease-in-out duration-300">See All Services</button>
+        <button className="bg-blue-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition ease-in-out duration-300">
+          See All Services
+        </button>
       </div>
     </section>
   );
@@ -93,12 +123,13 @@ const Header = () => {
   return (
     <div
       className=" relative overflow-hidden"
-  style={{
-    background: "linear-gradient(113.91deg, #FFFFFF 8%, rgba(255, 240, 220, 0.67) 28%, rgba(237, 246, 255, 0.7) 36%)",
-  }}
+      style={{
+        background:
+          "linear-gradient(113.91deg, #FFFFFF 8%, rgba(255, 240, 220, 0.67) 28%, rgba(237, 246, 255, 0.7) 36%)",
+      }}
     >
       {/* Navigation Menu */}
-      <nav className="absolute right-8 top-8 space-y-4">
+      <nav className="absolute hidden md:block right-8 top-8 space-y-4">
         <button className="bg-white px-6 py-3 rounded-full shadow-lg block w-full hover:shadow-xl transition-shadow">
           Annual Compliance
         </button>
@@ -111,9 +142,23 @@ const Header = () => {
       </nav>
 
       {/* Main Content */}
-      <div className="container mx-auto px-6 pt-32  grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-6 pt-10 md:pt-32  grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Column */}
         <div className="space-y-8 pb-10">
+          <div className="flex space-x-2 items-center">
+            <img src="/rating.svg" alt="rating" className="w-8 h-8" />
+            <h1 className="text-[#181617] font-semibold text-[14px] ">Google Rating</h1>
+            {Array(4)
+              .fill("/rating2.svg")
+              .map((rating, index) => (
+                <img
+                  key={index}
+                  src={rating}
+                  alt="rating"
+                  className="w-8 h-8" // Adjust the size as needed
+                />
+              ))}
+          </div>
           <h1 className="text-[2.75rem] leading-tight font-bold text-gray-900">
             Your Trusted Partner
             <br />
@@ -121,9 +166,10 @@ const Header = () => {
           </h1>
 
           <p className="text-lg text-gray-700">
-            An online business compliance platform that helps entrepreneurs and other individuals with various,
-            <span className="font-medium">registrations</span>,<span className="font-medium">tax filings</span>, and
-            other
+            An online business compliance platform that helps entrepreneurs and
+            other individuals with various,
+            <span className="font-medium">registrations</span>,
+            <span className="font-medium">tax filings</span>, and other
             <span className="font-medium">legal matters</span>.
           </p>
 
@@ -144,7 +190,7 @@ const Header = () => {
           </div>
 
           {/* CTAs */}
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col sm:flex-row  items-center gap-6">
             <button className="bg-blue-900 text-white px-8 py-4 rounded-lg hover:bg-blue-800 transition-colors">
               Get Started For Free
             </button>
@@ -169,18 +215,18 @@ const Header = () => {
         {/* Right Column / Illustration */}
         <div className="relative">
           <div>
-          <img
-            src='/banner.png'
-            alt="Business compliance illustration"
-            className="w-full"
-          />
+            <img
+              src="/banner.png"
+              alt="Business compliance illustration"
+              className="w-full"
+            />
           </div>
           <div className="absolute bottom-0 -right-16">
             <img
-            src='/arrow.png'
-            alt="Business compliance illustration"
-            className="w-full"
-          />
+              src="/arrow.png"
+              alt="Business compliance illustration"
+              className="w-full"
+            />
           </div>
         </div>
       </div>

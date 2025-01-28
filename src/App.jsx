@@ -16,6 +16,7 @@ import ProcessSteps from "./Component/Process-steps";
 import Testimonials from "./Component/testimonials";
 import HappyClients from "./Component/HappyClient";
 import Company from "./Component/company";
+import AppSection from "./Component/AppSection";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
         <Testimonials />
         
         <Questions />
+        <AppSection/>
         <LiveCount />
         <From />
         <Company />
