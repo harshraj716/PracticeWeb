@@ -109,7 +109,7 @@ export default function BlogSection() {
       title: "Scale-Up Company Offer",
       description: "JavaScript frameworks make development easy with extensive features and functionalities.",
       image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Frame%201000003386-N8V1U61AP0nBQ43zBcOM8EMcJohPtN.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image%20(2)-EMvTGbYHs0liFOJFbpnJw7DYaFxLxg.svg",
       tags: [
         { text: "Tax Return", type: "blue" },
         { text: "News", type: "purple" },
@@ -121,7 +121,7 @@ export default function BlogSection() {
       date: "1 Jan 2023",
       title: "Scale-Up Company Offer",
       description: "Starting a community doesn't need to be complicated, but how do you get started?",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Icon%20wrap-iWYXlxBjsjw8t9ne5S9Bsc9KHyLwlA.svg",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Image%20(2)-EMvTGbYHs0liFOJFbpnJw7DYaFxLxg.svg",
       tags: [
         { text: "Private Limited Company", type: "purple" },
         { text: "Customer Success", type: "blue" },
