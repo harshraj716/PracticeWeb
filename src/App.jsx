@@ -11,7 +11,7 @@ import LiveCount from "./Component/LiveCount";
 import From from "./Component/From";
 import TrustedPartners from "./Component/Trusted-partners";
 import WhySection from "./Component/Why-section";
-import CompanyLogos from "./Component/company-logos";
+import ServicesSection from "./Component/Service";
 
 const App = () => {
   return (
@@ -20,6 +20,7 @@ const App = () => {
       <NavBar />
       <Header />
       <TrustedPartners/>
+       <ServicesSection/>
         <About />
         <WhySection/>
         <Client />
