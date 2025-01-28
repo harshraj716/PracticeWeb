@@ -33,7 +33,6 @@ const App = () => {
         <ProcessSteps />
         <Blog />  
         <Testimonials />
-        
         <Questions />
         <AppSection/>
         <LiveCount />
