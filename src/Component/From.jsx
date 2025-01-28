@@ -3,7 +3,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="w-[1700px] h-[434px] mx-auto"
+      className=" h-[434px] mx-auto"
       style={{
         background: "linear-gradient(96.22deg, #FFA229 9%, #1C4670 59.37%)",
       }}

@@ -91,7 +91,12 @@ const ServicesSection = () => {
 // Header Component
 const Header = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-blue-50 relative overflow-hidden">
+    <div
+      className=" relative overflow-hidden"
+  style={{
+    background: "linear-gradient(113.91deg, #FFFFFF 8%, rgba(255, 240, 220, 0.67) 28%, rgba(237, 246, 255, 0.7) 36%)",
+  }}
+    >
       {/* Navigation Menu */}
       <nav className="absolute right-8 top-8 space-y-4">
         <button className="bg-white px-6 py-3 rounded-full shadow-lg block w-full hover:shadow-xl transition-shadow">
@@ -106,9 +111,9 @@ const Header = () => {
       </nav>
 
       {/* Main Content */}
-      <div className="container mx-auto px-6 pt-32 pb-16 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-6 pt-32  grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Column */}
-        <div className="space-y-8">
+        <div className="space-y-8 pb-10">
           <h1 className="text-[2.75rem] leading-tight font-bold text-gray-900">
             Your Trusted Partner
             <br />
@@ -163,11 +168,13 @@ const Header = () => {
 
         {/* Right Column / Illustration */}
         <div className="relative">
+          <div>
           <img
             src='/banner.png'
             alt="Business compliance illustration"
             className="w-full"
           />
+          </div>
           <div className="absolute bottom-0 -right-16">
             <img
             src='/arrow.png'

@@ -1,13 +1,46 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaInstagram, FaFacebook, FaTwitter, FaPinterest, FaBars, FaTimes } from 'react-icons/fa';
-import { AiOutlineSearch, AiOutlineMail, AiOutlinePhone } from 'react-icons/ai';
+import { MdEmail, MdPhone } from "react-icons/md";
 import logo from '../assets/logo.png';
 
 const NavBar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false)
 
   return (
+    <>
+ <div className="bg-[#1C4670] text-white py-2 px-4 text-sm flex justify-end items-center gap-4">
+      {/* Email Link */}
+      <a href="mailto:www.registerkaro.in" className="flex items-center gap-2 hover:text-primary">
+        <MdEmail className="w-4 h-4" />
+        www.registerkaro.in
+      </a>
+      {/* Divider */}
+      <span className="h-5 w-px bg-gray-300"></span>
+
+      {/* Phone Link */}
+      <a href="tel:+918447746183" className="flex items-center gap-2 hover:text-primary">
+        <MdPhone className="w-4 h-4" />
+        +918447746183
+      </a>
+      {/* Divider */}
+      <span className="h-5 w-px bg-gray-300"></span>
+
+      {/* Social Media Links */}
+      <a href="#" className="hover:text-primary">
+        <FaInstagram className="w-4 h-4" />
+      </a>
+      <a href="#" className="hover:text-primary">
+        <FaFacebook className="w-4 h-4" />
+      </a>
+      <a href="#" className="hover:text-primary">
+        <FaTwitter className="w-4 h-4" />
+      </a>
+      <a href="#" className="hover:text-primary">
+        <FaPinterest className="w-4 h-4" />
+      </a>
+    </div>
+
     <nav className="border-b border-gray-100 bg-white">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex justify-between items-center h-20">
@@ -128,6 +161,7 @@ const NavBar = () => {
       </div>
     </div>
   </nav>
+  </>
   );
 };
 

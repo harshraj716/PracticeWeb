@@ -105,7 +105,7 @@ const Blog = () => {
   };
 
   return (
-    <div className="text-center px-4 py-10">
+    <div className="text-center  py-10 px-20 overflow-x-hidden">
       <p className="text-orange-500 uppercase text-sm font-bold">Explore Our Blogs</p>
       <h2 className="text-3xl font-bold text-gray-800 mt-2">
         Accelerate Digital Transformation

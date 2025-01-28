@@ -14,6 +14,7 @@ import ServicesSection from "./Component/Service";
 import VideoSection from "./Component/Video-section";
 import ProcessSteps from "./Component/Process-steps";
 import Testimonials from "./Component/testimonials";
+import HappyClients from "./Component/HappyClient";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <About />
         <WhySection/>
         <VideoSection/>
+        <HappyClients/>
         <ProcessSteps />
         <Blog />  
         <Testimonials />
